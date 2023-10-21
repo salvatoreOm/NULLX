@@ -1,25 +1,54 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NULLX</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <style>
-      body {
-        background-color : black;
-      }
-     h1 , h2 , p{
-       color : white;
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>NULLX</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   <style>
+     body {
+       background-color : black;
      }
-      input {
-        width = "2000px";
-        text-align = center;
-      }
-    </style>
-  </head>
-  <body>
-    <div class = "container">
+    h1 , h2 , p{
+      color : white;
+      text-align : center;
+      font-family : Arial;
+    }
+     input {
+       width = "2000px";
+       text-align = center;
+     }
+     footer {
+         background-color: black;
+         color: #fff;
+         text-align: center;
+         padding: 10px;
+     }
+
+     .copyright {
+         font-size: 16px;
+     }
+
+     .contact-info {
+         margin-top: 10px;
+         font-size: 14px;
+     }
+
+     .phone,
+     .email {
+         margin-right: 10px;
+     }
+
+   </style>
+</head>
+<body>
+    <!-- <h1>Price Comparison</h1> -->
+    <!-- <form method="post">
+        <label for="product_name">Enter the product name:</label>
+        <input type="text" name="product_name" id="product_name" required>
+        <input type="submit" value="Compare Prices">
+    </form> -->
+  <div class = "container">
     <h1 class = "text-center mt-2 mb-4">NULLX</h1>
     <img class = "img-fluid" src = "https://nullx--omparihar0001.repl.co/static/background.jpg/" height = "400px" width = "1520px">
     <h2 class = "text-center mt-4 mb-4">About NULLX</h2>
@@ -29,10 +58,34 @@
       <br>
     <div>
       <p style ="" >Please enter the product you want to browse for. </p>
-      <input type = "text">
-      
-      <button>Compare</button>
+       <form method="post">
+      <!-- <label for="product_name">Enter the product name:</label> -->
+         <input autocomplete ="off" type="text" name="product_name" id="product_name" required>
+         <input autocomplete ="off" type="submit" value="Compare Price">
     </div>
       </div>
-  </body>
-  </html>
+
+    {% if ajio_price %}
+        <p>Ajio Price: {{ ajio_price }}</p>
+    {% endif %}
+    {% if snapdeal_price %}
+        <p>Snapdeal Price: {{ snapdeal_price }}</p>
+    {% endif %}
+  <br>
+  <br>
+  <br>
+  <br>
+  
+   <p class = "lead"  ><b>We are having some more future plans for this projects but as of now we just have this , we hope that you had a peaceful experience with us.</b></p>
+  <footer>
+      <div class="copyright">
+          &copy; 2023 NULLX. All rights reserved.
+      </div>
+      <div class="contact-info">
+          <span class="phone">Phone: +91 83051 84905</span>
+          <span class="email">Email: <a href="mailto:omparihar0001@gmail.com">omparihar0001@gmail.com</a></span>
+      </div>
+  </footer>
+
+</body>
+</html>
