@@ -3,7 +3,9 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
    <title>NULLX</title>
+  
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
    <style>
      body {
@@ -14,10 +16,12 @@
       text-align : center;
       font-family : Arial;
     }
+     
      input {
        width = "2000px";
        text-align = center;
      }
+     
      footer {
          background-color: black;
          color: #fff;
@@ -71,6 +75,12 @@
     {% if snapdeal_price %}
         <p>Snapdeal Price: {{ snapdeal_price }}</p>
     {% endif %}
+  {% if amazon_price %}
+      <p>Amazon Price: {{ amazon_price }}</p>
+  {% endif %}
+  {% if flipkart_price %}
+      <p>Flipkart Price: {{ flipkart_price }}</p>
+  {% endif %}
   <br>
   <br>
   <br>
@@ -82,8 +92,10 @@
           &copy; 2023 NULLX. All rights reserved.
       </div>
       <div class="contact-info">
-          <span class="phone">Phone: +91 83051 84905</span>
-          <span class="email">Email: <a href="mailto:omparihar0001@gmail.com">omparihar0001@gmail.com</a></span>
+          <span class="phone">Phone: +91 8305184905</span>
+          <span class="email">Email: <a href="mailto:omparihar0001@gmail.com">omparihar0001@gmail.com</a>
+</span>
+        
       </div>
   </footer>
 
