@@ -66,18 +66,21 @@
       <!-- <label for="product_name">Enter the product name:</label> -->
          <input autocomplete ="off" type="text" name="product_name" id="product_name" required>
          <input autocomplete ="off" type="submit" value="Compare Price">
+         </form>
+    </div>
     </div>
       </div>
 
     <!-- {% if meesho_price %}
         <p>Meesho Price: {{ meesho_price }}</p>
     {% endif %} -->
-    {% if snapdeal_price %}
-        <p>Snapdeal Price: {{ snapdeal_price }}</p>
-    {% endif %}
   {% if amazon_price %}
       <p>Amazon Price: {{ amazon_price }}</p>
   {% endif %}
+  {% if snapdeal_price %}
+        <p>Snapdeal Price: {{ snapdeal_price }}</p>
+  {% endif %}
+  
   {% if flipkart_price %}
       <p>Flipkart Price: {{ flipkart_price }}</p>
   {% endif %}
