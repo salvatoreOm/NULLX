@@ -9,7 +9,6 @@ app = Flask(__name__)
 def get_walmart_price(product_name):
   url = f'https://www.walmart.com/search?q={product_name.replace(" ", "+")}'
   headers = {
-      # Replace with your User-Agent string
       'User-Agent':
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
   }
@@ -36,7 +35,6 @@ def get_RelianceDigital_price(product_name):
 def get_amazon_price(product_name):
   url = f'https://www.amazon.in/s?k={product_name.replace(" ", "+")}'
   headers = {
-      # Replace with your User-Agent string
       'User-Agent':
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
   }
@@ -50,7 +48,6 @@ def get_amazon_price(product_name):
 def get_snapdeal_price(product_name):
   url = f'https://www.snapdeal.com/search?keyword={product_name.replace(" ", "%20")}'
   headers = {
-      # Replace with your User-Agent string
       'User-Agent':
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
   }
