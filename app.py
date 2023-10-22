@@ -20,8 +20,8 @@ def get_walmart_price(product_name):
   return price.text.strip() if price else 'N/A'
 
 
-def get_flipkart_price(product_name):
-  url = f'https://www.flipkart.com/search?q={product_name.replace(" ", "%20")}'
+def get_Croma_price(product_name):
+  url = f'https://www.croma.com/searchB?q={product_name.replace(" ", "%20")}'
   headers = {
       # Replace with your User-Agent string
       'User-Agent':
@@ -30,7 +30,7 @@ def get_flipkart_price(product_name):
   response = requests.get(url, headers=headers)
   soup = BeautifulSoup(response.content, 'html.parser')
   soup1 = BeautifulSoup(soup.prettify(), 'html.parser')
-  price = soup1.find('div', class_='_30jeq3 _1_WHN1')
+  price = soup1.find('div', class_='amount')
   return price.text.strip() if price else 'N/A'
 
 
@@ -44,7 +44,7 @@ def get_amazon_price(product_name):
   response = requests.get(url, headers=headers)
   soup = BeautifulSoup(response.content, 'html.parser')
   soup1 = BeautifulSoup(soup.prettify(), 'html.parser')
-  price = soup1.find('span', class_='a-price')
+  price = soup1.find('span', class_='a-price-whole')
   return price.text.strip() if price else 'N/A'
 
 
@@ -66,20 +66,20 @@ def price_comparison():
   walmart_price = None
   snapdeal_price = None
   amazon_price = None
-  flipkart_price = None
+  Croma_price = None
 
   if request.method == 'POST':
     product_name = request.form.get('product_name')
     walmart_price = get_walmart_price(product_name)
     snapdeal_price = get_snapdeal_price(product_name)
     amazon_price = get_amazon_price(product_name)
-    flipkart_price = get_flipkart_price(product_name)
+    Croma_price = get_Croma_price(product_name)
 
   return render_template('home.html',
                          walmart_price=walmart_price,
                          snapdeal_price=snapdeal_price,
                          amazon_price=amazon_price,
-                         flipkart_price=flipkart_price)
+                         Croma_price=Croma_price)
 
 
 if __name__ == '__main__':
