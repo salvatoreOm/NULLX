@@ -61,7 +61,7 @@
       <br>
       <br>
     <div>
-      <p style ="" >Please enter the product you want to browse for. </p>
+      <p>Please enter the product you want to browse for. </p>
        <form method="post">
       <!-- <label for="product_name">Enter the product name:</label> -->
          <input autocomplete ="off" type="text" name="product_name" id="product_name" required>
@@ -69,9 +69,9 @@
     </div>
       </div>
 
-    {% if meesho_price %}
+    <!-- {% if meesho_price %}
         <p>Meesho Price: {{ meesho_price }}</p>
-    {% endif %}
+    {% endif %} -->
     {% if snapdeal_price %}
         <p>Snapdeal Price: {{ snapdeal_price }}</p>
     {% endif %}
