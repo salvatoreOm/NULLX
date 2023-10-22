@@ -20,34 +20,17 @@ def get_walmart_price(product_name):
   return price.text.strip() if price else 'N/A'
 
 
-def get_Croma_price(product_name):
-  url = f'https://www.croma.com/search/?text={product_name.replace(" ", "%20")}'
+def get_RelianceDigital_price(product_name):
+  url = f'https://www.reliancedigital.in/search?q={product_name.replace(" ", "+")}'
   headers = {
-      # Replace with your User-Agent string
       'User-Agent':
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
   }
-  try:
-    # Send a GET request to the URL with custom headers
-    response = requests.get(url, headers=headers)
-
-    # Check if the request was successful
-    if response.status_code == 200:
-      # Parse the HTML content of the page
-      soup = BeautifulSoup(response.text, 'html.parser')
-
-      # Find the price element on the page
-      price = soup.find('span', {'class': 'amount'})
-
-      # Extract the price text
-      if price:
-        return price.text.strip()
-      else:
-        return 'N/A'  # Price not found
-    else:
-      return 'N/A'  # Request was unsuccessful
-  except Exception as e:
-    return 'Error: ' + str(e)
+  response = requests.get(url, headers=headers)
+  soup = BeautifulSoup(response.content, 'html.parser')
+  soup1 = BeautifulSoup(soup.prettify(), 'html.parser')
+  price = soup1.find('span', class_='priceboxw__price')
+  return price.text.strip() if price else 'N/A'
 
 
 def get_amazon_price(product_name):
@@ -82,20 +65,20 @@ def price_comparison():
   walmart_price = None
   snapdeal_price = None
   amazon_price = None
-  Croma_price = None
+  RelianceDigital_price = None
 
   if request.method == 'POST':
     product_name = request.form.get('product_name')
     walmart_price = get_walmart_price(product_name)
     snapdeal_price = get_snapdeal_price(product_name)
     amazon_price = get_amazon_price(product_name)
-    Croma_price = get_Croma_price(product_name)
+    RelianceDigital_price = get_RelianceDigital_price(product_name)
 
   return render_template('home.html',
                          walmart_price=walmart_price,
                          snapdeal_price=snapdeal_price,
                          amazon_price=amazon_price,
-                         Croma_price=Croma_price)
+                         RelianceDigital_price=RelianceDigital_price)
 
 
 if __name__ == '__main__':
